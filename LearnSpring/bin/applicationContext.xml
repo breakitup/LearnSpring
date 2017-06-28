@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+	http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+	
+<!--  
+	<bean id="studentbean" class="com.javatpoint.Student">
+		<property name="name" value="Vimal Jaiswal" />
+	</bean>
+	<bean id="employeebean" class="com.javatpoint.Employee" parent="employeebean2">
+		<constructor-arg>
+			<ref bean="addressbean" />
+		</constructor-arg>
+	</bean>
+	<bean id="addressbean" class="com.javatpoint.Address">
+		<constructor-arg value="Bangalore" type="String" />
+		<constructor-arg value="Karnataka" type="String" />
+		<constructor-arg value="India" type="String" />
+	</bean>
+
+	<bean id="answerbean1" class="com.javatpoint.Answer">
+		<constructor-arg value="1" type="int" />
+		<constructor-arg value="Java is a programming language"
+			type="String" />
+		<constructor-arg value="John" type="String" />
+	</bean>
+
+	<bean id="answerbean2" class="com.javatpoint.Answer">
+		<constructor-arg value="2" type="int"></constructor-arg>
+		<constructor-arg value="Java is a Platform"></constructor-arg>
+		<constructor-arg value="Ravi"></constructor-arg>
+	</bean>
+
+	<bean id="questionbeanwithanswers" class="com.javatpoint.Question">
+		<constructor-arg value="1" type="int" />
+		<constructor-arg value="What is Java" type="String" />
+		<constructor-arg>
+			<list>
+				<ref bean="answerbean1" />
+				<ref bean="answerbean2" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="questionbeanwithcomments" class="com.javatpoint.Question">
+		<constructor-arg value="2" type="int"></constructor-arg>
+		<constructor-arg value="Please enter your comments"
+			type="String"></constructor-arg>
+		<constructor-arg>
+			<map>
+				<entry key="Java is a Programming Language" value="Ajay Kumar"></entry>
+				<entry key="Java is a Platform" value="John Smith"></entry>
+				<entry key="Java is an Island" value="Raj Kumar"></entry>
+			</map>
+		</constructor-arg>
+	</bean>
+<bean id="employeebean2" class="com.javatpoint.Employee">
+<constructor-arg value="101" type="int"/>
+<constructor-arg value="Sachin"/>
+</bean>
+
+-->
+
+<!--  
+<bean id="employeebean" class="com.javatpoint.SetterInjection.Employee" autowire="byName" destroy-method="destroy">
+<property name="id" value="355430"></property>
+<property name="name" value="Abhishek"></property>
+</bean>
+
+<bean id="address" class="com.javatpoint.SetterInjection.Address">
+<property name="addressLine1" value="Flat No\-\-001, PAnathur Main Road"></property>
+<property name="city" value="Bangalore"></property>
+<property name="state" value="Karnataka"></property>
+<property name="country" value="India"></property>
+</bean>
+
+<bean id ="triangle" class="com.javatpoint.SetterInjection.Triangle">
+<property name="pointa" ref="pointa"></property>
+<property name="pointb" ref="pointb"></property>
+<property name="pointc" ref="pointc"></property>
+</bean>
+
+<bean id="pointa" class="com.javatpoint.SetterInjection.Point">
+<qualifier value="circleRelated"/> 
+<property name="x" value="0"></property>
+<property name="y" value="0"></property>
+</bean>
+
+<bean id="pointb" class="com.javatpoint.SetterInjection.Point">
+<property name="x" value="-20"></property>
+<property name="y" value="0"></property>
+</bean>
+
+<bean id="pointc" class="com.javatpoint.SetterInjection.Point">
+<property name="x" value="20"></property>
+<property name="y" value="0"></property>
+</bean>
+-->
+
+<!-- <bean id="circle" class="com.javatpoint.SetterInjection.Circle">
+</bean> -->
+
+<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
+<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"></bean>
+
+<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+<property name="basenames">
+<list>
+<value>mymessages</value>
+</list>
+</property>
+</bean>
+
+
+<context:annotation-config></context:annotation-config>
+<context:component-scan base-package="com.javatpoint.SetterInjection"/>
+
+</beans>
